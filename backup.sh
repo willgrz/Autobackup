@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/usr/bin/env bash
 
 #backup root dir
 backupdir=/data/serverbackups/autobackup
@@ -32,7 +32,7 @@ function backupbox {
 		#set ymd
 		ymdstr=$(date +'%Y-%m-%d-%H%M')
 		#run actual backup
-		ssh -p $eport $suser@$eip 'tar --numeric-owner --exclude "/var/vmail" --exclude "/nfs" --exclude "/kvm" --exclude "/data" --exclude "/var/www/html" --exclude "/mnt" --exclude "/var/spool/squid" --exclude "/var/spool/squid3" --exclude "/proc" --exclude "/backup" --exclude "/sys" --exclude "/dev" -cz /' | /usr/local/bin/gpg --trust-model always --encrypt --recipient $gkey -o "$backupserver/$ymdstr.tar.gz.enc"
+		ssh -p $eport $suser@$eip 'tar --numeric-owner --exclude "/var/vmail" --exclude "/nfs" --exclude "/kvm" --exclude "/data" --exclude "/var/www/html" --exclude "/mnt" --exclude "/var/spool/squid" --exclude "/var/spool/squid3" --exclude "/proc" --exclude "/backup" --exclude "/sys" --exclude "/dev" -cz /' | gpg --trust-model always --encrypt --recipient $gkey -o "$backupserver/$ymdstr.tar.gz.enc"
 }
 
 
