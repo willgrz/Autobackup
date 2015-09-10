@@ -1,1 +1,3 @@
-atproxy-kvm-AT-home internalip:22 externalip:10200 root
+#name internalip:port externalip:port user holdbackup
+#holdbackup is in days, 0 to disable
+atproxy-kvm-AT-home internalip:22 externalip:10200 root 10
