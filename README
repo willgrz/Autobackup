@@ -1,3 +1,2 @@
 #Backup script
-#Works OOB on Linux, needs 2 changes as described in backup.sh for BSD
-
+#Works OOB on Linux and (Free)BSD
